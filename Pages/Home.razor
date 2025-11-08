@@ -1,0 +1,108 @@
+﻿@page "/"
+@using ices.client.Client
+@using ices.client.models;
+@inject NavigationManager NavigationManager;
+
+
+<PageTitle>tabla de info</PageTitle>
+
+
+<div>
+    <h1>Existencia de Equipos</h1>
+</div>
+
+<div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button type="button" class="btn btn-primary" @onclick="crearEquipo"> alta de Equipo</button>
+
+        </div>
+
+    </nav>
+
+</div>
+
+<div>
+
+    <table class="table table-striped">
+
+        <thead class="table-dark">
+        
+            <tr>
+            <th>
+                    id
+                </th>
+                <th>
+                    clv_ depto
+                </th>
+
+                <th>
+                    ns
+                </th>
+                <th>
+                    modelo
+                </th>
+                <th>
+                    marca
+                </th>
+                <th>
+                    caracteristicas
+                </th>
+                <th>
+                    tipo de equipo
+                </th>
+                <th>
+                    status
+                </th>
+                 <th>
+                    Opciones
+                </th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in equipos)
+            {
+                <tr>
+                <td>@item.Id</td>
+                <td>@item.clv_depto</td>
+                <td>@item.ns</td>
+                <td>@item.modelo</td>
+                <td>@item.marca</td>
+                <td>@item.caracteristicas</td>
+                <td>@item.tipo_equipo</td>
+                <td>@item.status</td>
+                <td><button class="btn btn-success" @onclick="(()=>EditEquipos(item.Id))"><i class="bi bi-pen-fill"></i> Editar</button></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
+
+@code {
+    private Equipo[]? equipos;
+
+    protected override void OnInitialized()
+    {
+        equipos = EquipoClient.GetEquipos();
+    }
+
+    private void crearEquipo()
+    {
+        NavigationManager.NavigateTo("/counter");
+    }
+
+    private void EditEquipos(int id){
+        NavigationManager.NavigateTo("/counter/{id}");
+    }
+
+}
