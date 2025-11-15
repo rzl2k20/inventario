@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ices.client",
   "resources": {
-    "hash": "sha256-WDeYyse6r6KS5Q7w1RxLxq0pkjGTAyCe3o0ASGpNzT0=",
+    "hash": "sha256-Ps8ccYHwXxQi1qGJ5wlNvrwy1jFF/hFaoRDqy98JpHo=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.z6jo10m0rd.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.65wbz7t8mt.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -201,8 +201,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "ices.client.aaakbgya6h.wasm": "ices.client.wasm",
-      "ices.client.jb9kwle72g.pdb": "ices.client.pdb"
+      "ices.client.lg43d85izi.wasm": "ices.client.wasm",
+      "ices.client.gj3zoskep1.pdb": "ices.client.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.l4ptthxatg.js": "sha256-ddUN4+taa/Qv7Mr8mLpunJO+0Xw3ViOqBvedhe57/hA="
@@ -412,10 +412,10 @@
       "WindowsBase.vy2l5u79y6.wasm": "sha256-ufB9Mo5joMyUs3DzXWWBFFIZNEVrt6h9N5stYB6Oln4=",
       "mscorlib.xd6mv31d55.wasm": "sha256-1YSLR2eZt3ceALFV//vZUF2AloxVil3VlrW1zZYPSEI=",
       "netstandard.kaml52uspo.wasm": "sha256-HLEwBpLfzKw2/zGSVzHzFJxznCkt/WIjahrziiMrOpA=",
-      "ices.client.aaakbgya6h.wasm": "sha256-7sNESVzHE9aijCQLsVlPMOrVlWWq3sMtwqO3vqdQ0LI="
+      "ices.client.lg43d85izi.wasm": "sha256-q6k0RK5dFBu1wM8WiRXtlqzkRQdcwGVf4R4N+rNM4JE="
     },
     "pdb": {
-      "ices.client.jb9kwle72g.pdb": "sha256-0V91M9mUuuHwuZZbA9F74i0XySPsDMP6Ra+/OYYr3x8="
+      "ices.client.gj3zoskep1.pdb": "sha256-rMQbC/4l2t5ShbPdpYHn+qjGLj/6wAK4VvaHTFWeIAI="
     }
   },
   "cacheBootResources": true,

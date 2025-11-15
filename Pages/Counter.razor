@@ -70,10 +70,13 @@
     protected override void OnParametersSet()
     {
         if (Id is not null){
-            Equipo ExisteEquipo = EquipoClient.GetEquipos(Id.Value);
-            equipos=new(){
+
+            Equipo ExisteEquipo = EquipoClient.GetEquipo(Id.Value);
+                equipos=new()
+                {
                 clv_depto=ExisteEquipo.clv_depto,
                 ns=ExisteEquipo.ns,
+                modelo=ExisteEquipo.modelo,
                 marca=ExisteEquipo.marca,
                 caracteristicas=ExisteEquipo.caracteristicas, 
                 status=ExisteEquipo.status,
@@ -99,6 +102,9 @@
     private void Manejador(){
         if (equipos!.Id ==0){
             EquipoClient.AddEquipo(equipos);
+        }
+        else {
+                EquipoClient.UpdateEquipo(equipos);
         }
         NavigationManager.NavigateTo("/");
     }

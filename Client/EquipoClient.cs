@@ -38,8 +38,23 @@ namespace ices.client.Client
         }
         public static void AddEquipo(Equipo equipo)
         {
-            equipo.Id= equipos.Max(equipo=>equipo.Id)+1;
+            equipo.Id = equipos.Max(equipo => equipo.Id) + 1;
             equipos.Add(equipo);
+        }
+        public static Equipo GetEquipo(int Id)
+        {
+            return equipos.Find(equipos=> equipos.Id == Id)?? throw new Exception("no de encontra la chingadera");
+        }
+        public static void UpdateEquipo (Equipo updateEquipo)
+        {
+            Equipo exiteEquipo = GetEquipo(updateEquipo.Id);
+            exiteEquipo.clv_depto=updateEquipo.clv_depto;
+            exiteEquipo.ns = updateEquipo.ns;
+            exiteEquipo.modelo = updateEquipo.modelo;
+            exiteEquipo.marca = updateEquipo.marca;
+            exiteEquipo.caracteristicas = updateEquipo.caracteristicas;
+            exiteEquipo.status=updateEquipo.status;
+            
         }
 
     }
