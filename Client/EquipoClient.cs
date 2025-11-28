@@ -29,7 +29,7 @@ namespace ices.client.Client
                 caracteristicas="equipo admin",
                 status="1",
                 tipo_equipo="caja",
-            }
+            },
         };
 
         public static Equipo[] GetEquipos()
@@ -54,6 +54,7 @@ namespace ices.client.Client
             exiteEquipo.marca = updateEquipo.marca;
             exiteEquipo.caracteristicas = updateEquipo.caracteristicas;
             exiteEquipo.status=updateEquipo.status;
+            exiteEquipo.tipo_equipo=updateEquipo.tipo_equipo;
             
         }
 

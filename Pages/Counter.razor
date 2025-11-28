@@ -1,110 +1,128 @@
-﻿@page "/counter"
-@page "/counter/id:int"
+﻿@page "/Form1"
+@page "/Form1/{Id:int}"
 
-@using ices.client.Client
+
+@using ices.client.Client;
 @using ices.client.models;
 @inject NavigationManager NavigationManager;
 
-<PageTitle>Counter</PageTitle>(
+<PageTitle>Counter</PageTitle>
 
 <h1>Formulario de Alta</h1>
 
-<div>
-    <EditForm Model="@equipos" OnValidSubmit="Manejador">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+@if (equipos is null)
+{
+    <p>Cargando</p>
+}
+else
+{
+    <div>
+        <EditForm Model="@equipos" OnValidSubmit="Manejador">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-        <div class="mb-6">
-            <label for="clv_depto" class="form-label">Clave Depto</label>
-            <InputText class="form-control" id="clv_depto" @bind-Value="equipos.clv_depto">
-            </InputText>
-        </div>
- <div class="mb-6">
-            <label for="ns" class="form-label">Numero de Serie</label>
-            <InputText class="form-control" id="ns" @bind-Value="equipos.ns">
-            </InputText>
-        </div>
-         <div class="mb-6">
-            <label for="modelo" class="form-label">Modelo</label>
-            <InputText class="form-control" id="modelo" @bind-Value="equipos.modelo">
-            </InputText>
-        </div>
+            <div class="mb-6">
+                <label for="clv_depto" class="form-label">Clave Depto</label>
+                <InputText class="form-control" id="clv_depto" @bind-Value="equipos.clv_depto">
+                </InputText>
+            </div>
+            <div class="mb-6">
+                <label for="ns" class="form-label">Numero de Serie</label>
+                <InputText class="form-control" id="ns" @bind-Value="equipos.ns">
+                </InputText>
+            </div>
+            <div class="mb-6">
+                <label for="modelo" class="form-label">Modelo</label>
+                <InputText class="form-control" id="modelo" @bind-Value="equipos.modelo">
+                </InputText>
+            </div>
 
- <div class="mb-6">
-            <label for="marca" class="form-label">marca</label>
-            <InputText class="form-control" id="marca" @bind-Value="equipos.marca">
-            </InputText>
-        </div>
+            <div class="mb-6">
+                <label for="marca" class="form-label">marca</label>
+                <InputText class="form-control" id="marca" @bind-Value="equipos.marca">
+                </InputText>
+            </div>
 
-         <div class="mb-6">
-            <label for="caracteristica" class="form-label">Cacaracteristicas</label>
-            <InputText class="form-control" id="caracteristicas" @bind-Value="equipos.caracteristicas">
-            </InputText>
-        </div>
+            <div class="mb-6">
+                <label for="caracteristica" class="form-label">Cacaracteristicas</label>
+                <InputText class="form-control" id="caracteristicas" @bind-Value="equipos.caracteristicas">
+                </InputText>
+            </div>
 
-         <div class="mb-6">
-            <label for="status" class="form-label">Status</label>
-            <InputText class="form-control" id="status" @bind-Value="equipos.status">
-            </InputText>
-        </div>
+            <div class="mb-6">
+                <label for="status" class="form-label">Status</label>
+                <InputText class="form-control" id="status" @bind-Value="equipos.status">
+                </InputText>
+            </div>
 
-         <div class="mb-6">
-            <label for="tequipo" class="form-label">Tipo de equipo</label>
-            <InputText class="form-control" id="tequipo" @bind-Value="equipos.tipo_equipo">
-            </InputText>
-        </div>
+            <div class="mb-6">
+                <label for="tequipo" class="form-label">Tipo de equipo</label>
+                <InputText class="form-control" id="tequipo" @bind-Value="equipos.tipo_equipo">
+                </InputText>
+            </div>
 
-        <div>
-        <button class="btn btn-primary" typr="submit"> Guardar</button>
-        <button class="btn btn-danger" typr="reset"> Cancelar</button>
-        </div>
-    </EditForm>
+            <div>
+                <button class="btn btn-primary" typr="submit"> Guardar</button>
+                <button class="btn btn-danger" typr="reset"> Cancelar</button>
+            </div>
+        </EditForm>
 
-</div>
+    </div>
+}
+
+
 
 @code {
 
-    private Equipo? equipos;
+    
     [Parameter]
-        public int? Id{get;set;}
+    public int? Id { get; set; }
+    private Equipo? equipos;
     protected override void OnParametersSet()
     {
-        if (Id is not null){
+        if (Id is not null)
+        {
 
             Equipo ExisteEquipo = EquipoClient.GetEquipo(Id.Value);
-                equipos=new()
-                {
-                clv_depto=ExisteEquipo.clv_depto,
-                ns=ExisteEquipo.ns,
-                modelo=ExisteEquipo.modelo,
-                marca=ExisteEquipo.marca,
-                caracteristicas=ExisteEquipo.caracteristicas, 
-                status=ExisteEquipo.status,
-                tipo_equipo=ExisteEquipo.tipo_equipo
-            };
-        }else{
             equipos = new()
-        {
-            clv_depto = string.Empty,
-            ns = string.Empty,
-            modelo = string.Empty,
-            marca = string.Empty,
-            caracteristicas = string.Empty,
-            status = string.Empty,
-            tipo_equipo = string.Empty
-
-        };
+            {
+                Id=ExisteEquipo.Id,
+                clv_depto = ExisteEquipo.clv_depto,
+                ns = ExisteEquipo.ns,
+                modelo = ExisteEquipo.modelo,
+                marca = ExisteEquipo.marca,
+                caracteristicas = ExisteEquipo.caracteristicas,
+                status = ExisteEquipo.status,
+                tipo_equipo = ExisteEquipo.tipo_equipo
+            };
         }
-        
+        else
+        {
+            equipos = new()
+            {
+                clv_depto = string.Empty,
+                ns = string.Empty,
+                modelo = string.Empty,
+                marca = string.Empty,
+                caracteristicas = string.Empty,
+                status = string.Empty,
+                tipo_equipo = string.Empty
+
+            };
+        }
+
 
 
     }
-    private void Manejador(){
-        if (equipos!.Id ==0){
+    private void Manejador()
+    {
+        if (equipos!.Id == 0)
+        {
             EquipoClient.AddEquipo(equipos);
         }
-        else {
-                EquipoClient.UpdateEquipo(equipos);
+        else
+        {
+            EquipoClient.UpdateEquipo(equipos);
         }
         NavigationManager.NavigateTo("/");
     }

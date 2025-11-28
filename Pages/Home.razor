@@ -27,15 +27,17 @@
     </nav>
 
 </div>
-
+@if(equipos is null){
+    <p><em>cargando Equipo</em></p>
+}else{
 <div>
 
     <table class="table table-striped">
 
         <thead class="table-dark">
-        
+
             <tr>
-            <th>
+                <th>
                     id
                 </th>
                 <th>
@@ -60,7 +62,7 @@
                 <th>
                     status
                 </th>
-                 <th>
+                <th>
                     Opciones
                 </th>
             </tr>
@@ -71,15 +73,17 @@
             @foreach (var item in equipos)
             {
                 <tr>
-                <td>@item.Id</td>
-                <td>@item.clv_depto</td>
-                <td>@item.ns</td>
-                <td>@item.modelo</td>
-                <td>@item.marca</td>
-                <td>@item.caracteristicas</td>
-                <td>@item.tipo_equipo</td>
-                <td>@item.status</td>
-                <td><button class="btn btn-success" @onclick="(()=>EditEquipos(item.Id))"><i class="bi bi-pen-fill"></i> Editar</button></td>
+                    <td>@item.Id</td>
+                    <td>@item.clv_depto</td>
+                    <td>@item.ns</td>
+                    <td>@item.modelo</td>
+                    <td>@item.marca</td>
+                    <td>@item.caracteristicas</td>
+                    <td>@item.tipo_equipo</td>
+                    <td>@item.status</td>
+                    <td><button class="btn btn-success" @onclick="(() => EditEquipos(item.Id))"><i
+                                class="bi bi-pen-fill"></i>
+                            Editar</button></td>
                 </tr>
 
             }
@@ -87,6 +91,9 @@
     </table>
 
 </div>
+
+}
+
 
 @code {
     private Equipo[]? equipos;
@@ -98,11 +105,12 @@
 
     private void crearEquipo()
     {
-        NavigationManager.NavigateTo("/counter");
+        NavigationManager.NavigateTo("/Form1");
     }
 
-    private void EditEquipos(int Id){
-        NavigationManager.NavigateTo("/counter/{Id}");
+    private void EditEquipos(int Id)
+    {
+        NavigationManager.NavigateTo($"/Form1/{Id}");
     }
 
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ices.client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6d4d76f3761f694a49a1b7d391d8f6fcdc992fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4404df7a4e93cfad93636ae0284910e9689eb5b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ices.client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ices.client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
